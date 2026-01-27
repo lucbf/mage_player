@@ -1,0 +1,1 @@
+rootProject.name = "mage_player"
