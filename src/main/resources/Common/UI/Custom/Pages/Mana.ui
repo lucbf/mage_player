@@ -1,0 +1,8 @@
+Group {
+  LayoutMode: Bottom;
+  Anchor: (Width: 50, Height: 760);
+  Group #ImageGrouped559173 {
+    LayoutMode: Bottom;
+    Anchor: (Width: 50, Height: 50);
+  }
+}

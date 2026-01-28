@@ -55,7 +55,18 @@
       "Type": "Serial",
       "Interactions": [
         "Consume_Charge_Crystal",
-        "ObtainIceMana"
+        "ObtainIceMana",
+        {
+          "Type": "Simple",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Effect_Ice",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
       ]
     }
   },

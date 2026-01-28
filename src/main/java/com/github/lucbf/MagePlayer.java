@@ -3,15 +3,9 @@ package com.github.lucbf;
 
 
 import com.github.lucbf.ui.ManaUi;
-import com.hypixel.hytale.builtin.ambience.systems.ForcedMusicSystems;
 import com.hypixel.hytale.logger.HytaleLogger;
 
-import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
-import com.hypixel.hytale.server.core.asset.type.itemanimation.ItemPlayerAnimationsPacketGenerator;
-import com.hypixel.hytale.server.core.asset.type.itemanimation.config.ItemPlayerAnimations;
 import com.hypixel.hytale.server.core.entity.LivingEntity;
-import com.hypixel.hytale.server.core.entity.effect.ActiveEntityEffect;
-import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.event.events.entity.LivingEntityInventoryChangeEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
@@ -24,19 +18,16 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Int
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
-import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
-import com.hypixel.hytale.server.npc.asset.builder.InstructionContextHelper;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 import java.sql.SQLException;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class UnlockMana extends JavaPlugin {
+public class MagePlayer extends JavaPlugin {
     private final HytaleLogger.Api LOGGER;
 
     public static final SimpleItemContainer fireItemContainer = new SimpleItemContainer((short) 1);
@@ -44,7 +35,7 @@ public class UnlockMana extends JavaPlugin {
 
 
 
-    public UnlockMana(@NonNullDecl JavaPluginInit init) throws SQLException {
+    public MagePlayer(@NonNullDecl JavaPluginInit init) throws SQLException {
         super(init);
         LOGGER = this.getLogger().atInfo();
     }
@@ -93,13 +84,18 @@ public class UnlockMana extends JavaPlugin {
                 item_name = (mt == ManaType.FIRE) ? "Ingredient_Fire_Essence" : "Ingredient_Ice_Essence";
 
             } else {
-                if (player.getInventory().getActiveHotbarItem() != null && player.getInventory().getActiveHotbarItem().getItem().getId().equals("Weapon_Staff_Crystal_Ice")) {
-                    item_name = "Ingredient_Ice_Essence";
-                } else if (player.getInventory().getActiveHotbarItem().getItem().getId().equals("Weapon_Staff_Crystal_Flame")) {
-                    item_name = "Ingredient_Fire_Essence";
-                } else {
+                try {
+                    if (player.getInventory().getActiveHotbarItem() != null && player.getInventory().getActiveHotbarItem().getItem().getId().equals("Weapon_Staff_Crystal_Ice")) {
+                        item_name = "Ingredient_Ice_Essence";
+                    } else if (player.getInventory().getActiveHotbarItem().getItem().getId().equals("Weapon_Staff_Crystal_Flame")) {
+                        item_name = "Ingredient_Fire_Essence";
+                    } else {
+                        return;
+                    }
+                } catch (NullPointerException e) {
                     return;
                 }
+
             }
 
             if (event.getTransaction() instanceof ItemStackTransaction transaction) {

@@ -55,7 +55,18 @@
       "Type": "Serial",
       "Interactions": [
         "Consume_Charge_Crystal",
-        "ObtainFireMana"
+        "ObtainFireMana",
+        {
+          "Type": "Simple",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Effect_Fire",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
       ]
     }
   },

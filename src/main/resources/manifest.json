@@ -1,0 +1,22 @@
+{
+  "Group": "mage_player",
+  "Name": "Mage Player",
+  "Version": "1.0.0",
+  "Description": "Unlocks mana for use with a staff",
+  "Authors": [
+    {
+      "Name": "Lúcio Boari Fleury",
+      "Email": "lucboari@gmail.com",
+      "Url": ""
+    }
+  ],
+  "Main": "com.github.lucbf.MagePlayer",
+  "Website": "",
+  "Hyxin": {
+    "Configs": ["mixin.json"]
+  },
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "SubPlugins": []
+}

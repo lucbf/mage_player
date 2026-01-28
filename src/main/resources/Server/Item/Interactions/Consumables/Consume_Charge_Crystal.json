@@ -1,15 +1,7 @@
 {
   "Type": "Serial",
   "Interactions": [
-    {
-      "Type": "Replace",
-      "Var": "ConsumeSFX_Crystal",
-      "DefaultValue": {
-        "Interactions": [
-          "Consume_SFX_Crystal"
-        ]
-      }
-    },
+    "Consume_SFX_Crystal",
     {
       "Type": "Charging",
       "FailOnDamage": true,
