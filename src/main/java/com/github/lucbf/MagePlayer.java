@@ -100,7 +100,6 @@ public class MagePlayer extends JavaPlugin {
 
             if (event.getTransaction() instanceof ItemStackTransaction transaction) {
                 if (transaction.getQuery().getItem().getId().equals(item_name) && transaction.getAction() == ActionType.REMOVE && transaction.succeeded()) {
-                    LOGGER.log(event.toString());
                     event.getItemContainer().addItemStack(new ItemStack(item_name, 1));
                 }
             }
