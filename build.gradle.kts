@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.github.lucbf"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -27,12 +27,11 @@ dependencies {
 tasks.named<Jar>("jar") {
     // Configura o manifesto (opcional, mas recomendado se for executável)
     manifest {
-        attributes["Main-Class"] = "com.seu.pacote.Main"
+        attributes["Main-Class"] = "com.github.lucbf.MagePlayer"
     }
 
     from(embeddable.map { if (it.isDirectory) it else zipTree(it) })
 
-    // Evita erro se houver arquivos duplicados (comum em arquivos META-INF)
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 

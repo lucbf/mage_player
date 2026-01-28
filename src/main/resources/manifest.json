@@ -1,7 +1,7 @@
 {
   "Group": "mage_player",
   "Name": "Mage Player",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Unlocks mana for use with a staff",
   "Authors": [
     {
